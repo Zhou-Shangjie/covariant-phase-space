@@ -1,0 +1,41 @@
+\documentclass[10pt]{article}
+\usepackage{zsj}
+
+\usepackage{silence}
+\WarningFilter{latex}{Marginpar on page}
+
+\allowdisplaybreaks
+
+\hbadness=99999
+
+\newcommand{\me}{\mathrm{e}}
+%\newcommand{\rr}{\mathbb{R}}
+\newcommand{\ii}{\mathrm{i}}
+%\newcommand{\md}{\mathrm{d}}
+%\DeclareMathOperator{\im}{im}
+
+
+\usepackage{marginfix}
+\usepackage[export]{adjustbox}
+
+\crefname{claim}{claim}{claims}
+
+
+\begin{document}
+\title{Covariant Phase Space}
+\subheader{Notes}
+\author{Shangjie Zhou\orcidlink{0000-0001-9576-5011}}
+\affiliation{Department of Physics and Astronomy, Purdue University, West Lafayette, IN 47907, USA}
+\emailAdd{ZhouShangjie@purdue.edu}
+\abstract{\textit{Last updated on: \today}\\Latest version: \url{https://github.com/Zhou-Shangjie/covariant-phase-space/releases}\\Source files: \url{https://github.com/Zhou-Shangjie/covariant-phase-space}\\Personal Website: \url{https://zhou-shangjie.com}}
+\maketitle
+\phantomsection\addcontentsline{toc}{section}{\protect\numberline{}Introduction}
+\section*{Introduction}
+This note follows \cite{Harlow:2019yfa}
+
+\section{Hamiltonian Formalism}
+
+\clearpage
+\bibliographystyle{jhep}
+\bibliography{ref}
+\end{document}
