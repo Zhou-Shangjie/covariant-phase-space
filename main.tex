@@ -34,6 +34,83 @@
 This note follows \cite{Harlow:2019yfa}
 
 \section{Hamiltonian Formalism}
+The Hamilton equations are
+\begin{subequations}
+    \begin{align}
+        \dot{q}^a&=\pdv{H}{p^a}\\
+        \dot{p}^a&=-\pdv{H}{q^a}
+    \end{align}
+\end{subequations}
+The usual Hamiltonian equation splits time coordinate $t$ from other coordinates which make it hard to maintain covariance.
+
+We view the phase space as an manifold $\mathcal{P}$ equipped with an non-degenrate\sidenote{That $\Omega$ is degenrate means: there is a vector $X\in V(\mathcal{P})$ makes that $\forall Y\in V(\mathcal{P})$, $\Omega(X,Y)=0$.} two-form $\Omega:V(\mathcal{P})\times V(\mathcal{P})\to\mathbb{R}(\mathcal{P})$ called the \textit{symplectic form}.
+From $\Omega$, we can induce a map $\Omega_{\text{ind}}:V(\mathcal{P})\to V^\ast(\mathcal{P})$ and for $X,Y\in V(\mathcal{P})$ we define 
+\begin{equation}
+    \Omega_{\text{ind}}(X)(Y)\equiv\Omega(X,Y)
+\end{equation}
+and notice that $\Omega_{\text{ind}}(X)\in V^\ast$.
+We can also define $\Omega^{-1}:V^\ast(\mathcal{P})\times V^\ast(\mathcal{P})\to \mathbb{R}(\mathcal{P})$ via\sidenote{Notice the abuse of notation: $\Omega^{-1}$ here is actually not the inverse of $\Omega$.}
+\begin{equation}
+    \Omega^{-1}(\omega,\sigma)\equiv\omega(\Omega_{\text{ind}}^{-1}(\sigma))
+\end{equation}
+where $\omega,\sigma\in V^\ast(\mathcal{P})$.
+Given a function $H\in\mathcal{P}$, we can define $X_H\in V(\mathcal{P})$ as 
+\begin{equation}
+    X_H(f)\equiv\Omega^{-1}(\delta f,\delta H)
+\end{equation}
+where $f\in\mathcal{F}(\mathcal{P})$.
+
+\begin{definition}[Poisson bracket]
+    On manifold $\mathcal{P}$, the \textit{Poisson bracket} of two functions  $f,g\in\mathcal{F}(\mathcal{P})$ is defined as  
+    \begin{equation}
+        \pb{f}{g}\equiv\Omega^{-1}(\delta f,\delta g)=\Omega(X_g,X_f).
+    \end{equation}
+\end{definition}
+Now we require that in a dynamic system, the time evolution of a function $f\in\mathcal{F}(\mathcal{P})$ to satisfy 
+\begin{equation}
+    \dot{f}=X_H(f)=\pb{f}{H}.
+\end{equation}
+The usual Hamiltonian mechanics can be restored if we take 
+\begin{equation}
+    \Omega=\sum_a \delta p^a\wedge \delta q^a
+\end{equation}
+
+\section{Construction of Covariant Phase Space}
+We consider the following action 
+\begin{equation}
+    S=\int_M L+\int_{\partial M}\ell
+\end{equation}
+
+If we decompose $\partial M=\Gamma\cup\Sigma_+\cup\sigma_-$, the variation of action around classical solutions should be 
+\begin{equation}
+    \delta S=\int_{\Sigma_+}\Psi-\int_{\sigma_-}\Psi\label{var_S_1}
+\end{equation}
+
+By integration by parts, any local Lagrangian can be written in the following form 
+\begin{equation}
+    \delta L=E_a\delta \phi^a+\dd{\Theta}
+\end{equation}
+
+Therefore, we can write 
+\begin{equation}
+    \delta S=\int_M E_a\delta\phi^a+\int_{\partial M}\left(\delta\ell+\Theta\right).\label{var_S_2}
+\end{equation}
+For a variation around classical solution $\phi_c$, since \cref{var_S_2} should be in the same form as \cref{var_S_1} and $\delta\phi^a$ is arbitrary in the interior of $M$, we must have 
+\begin{equation}
+    E_a[\phi_c]=0
+\end{equation}
+which is just the \textit{equation of motion}.
+To make the spatial boundary contribution, a sufficient condition is that\sidenote{Notice that: \begin{itemize}
+    \item This has not been proved to be a necessary condition yet, but the authors of \cite{Harlow:2019yfa} believe it is.
+    \item The relation still holds off shell. We can view this as a requirement on the theory, which means that we will only consider theories that satisfies \cref{spatial_boundary_requirement} here and theories that do not satisfy \cref{spatial_boundary_requirement} is not well-defined.
+\end{itemize}}
+\begin{equation}\label{spatial_boundary_requirement}
+    \eval{\left(\Theta+\delta\ell\right)}_\Gamma=\dd{C}
+\end{equation}
+where $C$ is a local $(d-2)$-form on $\Gamma$ which is locally constructed from terms involving dynamical/background fields.
+Although we only defined $C$ on $\Gamma$, we can extend the definition of $C$ to $\Sigma_{\pm}$ in arbitrary way since we will find only values on $\partial\Gamma$ (or $\partial\Sigma_{\pm}$) matter.
+
+
 
 \clearpage
 \bibliographystyle{jhep}
