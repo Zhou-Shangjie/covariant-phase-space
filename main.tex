@@ -37,14 +37,14 @@ This note follows \cite{Harlow:2019yfa}
 The Hamilton equations are
 \begin{subequations}
     \begin{align}
-        \dot{q}^a&=\pdv{H}{p^a}\\
-        \dot{p}^a&=-\pdv{H}{q^a}
+        \dot{q}^a & =\pdv{H}{p^a}  \\
+        \dot{p}^a & =-\pdv{H}{q^a}
     \end{align}
 \end{subequations}
 The usual Hamiltonian equation splits time coordinate $t$ from other coordinates which make it hard to maintain covariance.
 
 We view the phase space as an manifold $\mathcal{P}$ equipped with an non-degenrate\sidenote{That $\Omega$ is degenrate means: there is a vector $X\in V(\mathcal{P})$ makes that $\forall Y\in V(\mathcal{P})$, $\Omega(X,Y)=0$.} two-form $\Omega:V(\mathcal{P})\times V(\mathcal{P})\to\mathbb{R}(\mathcal{P})$ called the \textit{symplectic form}.
-From $\Omega$, we can induce a map $\Omega_{\text{ind}}:V(\mathcal{P})\to V^\ast(\mathcal{P})$ and for $X,Y\in V(\mathcal{P})$ we define 
+From $\Omega$, we can induce a map $\Omega_{\text{ind}}:V(\mathcal{P})\to V^\ast(\mathcal{P})$ and for $X,Y\in V(\mathcal{P})$ we define
 \begin{equation}
     \Omega_{\text{ind}}(X)(Y)\equiv\Omega(X,Y)
 \end{equation}
@@ -54,56 +54,56 @@ We can also define $\Omega^{-1}:V^\ast(\mathcal{P})\times V^\ast(\mathcal{P})\to
     \Omega^{-1}(\omega,\sigma)\equiv\omega(\Omega_{\text{ind}}^{-1}(\sigma))
 \end{equation}
 where $\omega,\sigma\in V^\ast(\mathcal{P})$.
-Given a function $H\in\mathcal{P}$, we can define $X_H\in V(\mathcal{P})$ as 
+Given a function $H\in\mathcal{P}$, we can define $X_H\in V(\mathcal{P})$ as
 \begin{equation}
     X_H(f)\equiv\Omega^{-1}(\delta f,\delta H)
 \end{equation}
 where $f\in\mathcal{F}(\mathcal{P})$.
 
 \begin{definition}[Poisson bracket]
-    On manifold $\mathcal{P}$, the \textit{Poisson bracket} of two functions  $f,g\in\mathcal{F}(\mathcal{P})$ is defined as  
+    On manifold $\mathcal{P}$, the \textit{Poisson bracket} of two functions  $f,g\in\mathcal{F}(\mathcal{P})$ is defined as
     \begin{equation}
         \pb{f}{g}\equiv\Omega^{-1}(\delta f,\delta g)=\Omega(X_g,X_f).
     \end{equation}
 \end{definition}
-Now we require that in a dynamic system, the time evolution of a function $f\in\mathcal{F}(\mathcal{P})$ to satisfy 
+Now we require that in a dynamic system, the time evolution of a function $f\in\mathcal{F}(\mathcal{P})$ to satisfy
 \begin{equation}
     \dot{f}=X_H(f)=\pb{f}{H}.
 \end{equation}
-The usual Hamiltonian mechanics can be restored if we take 
+The usual Hamiltonian mechanics can be restored if we take
 \begin{equation}
     \Omega=\sum_a \delta p^a\wedge \delta q^a
 \end{equation}
 
 \section{Construction of Covariant Phase Space}
-We consider the following action 
+We consider the following action
 \begin{equation}
     S=\int_M L+\int_{\partial M}\ell\label{eq:action}
 \end{equation}
 
-If we decompose $\partial M=\Gamma\cup\Sigma_+\cup\sigma_-$, the variation of action around classical solutions should be 
+If we decompose $\partial M=\Gamma\cup\Sigma_+\cup\sigma_-$, the variation of action around classical solutions should be
 \begin{equation}
     \delta S=\int_{\Sigma_+}\Psi-\int_{\sigma_-}\Psi\label{var_S_1}
 \end{equation}
 
-By integration by parts, any local Lagrangian can be written in the following form 
+By integration by parts, any local Lagrangian can be written in the following form
 \begin{equation}
     \delta L=E_a\delta \phi^a+\dd{\Theta}
 \end{equation}
 
-Therefore, we can write 
+Therefore, we can write
 \begin{equation}
     \delta S=\int_M E_a\delta\phi^a+\int_{\partial M}\left(\delta\ell+\Theta\right).\label{var_S_2}
 \end{equation}
-For a variation around classical solution $\phi_c$, since \cref{var_S_2} should be in the same form as \cref{var_S_1} and $\delta\phi^a$ is arbitrary in the interior of $M$, we must have 
+For a variation around classical solution $\phi_c$, since \cref{var_S_2} should be in the same form as \cref{var_S_1} and $\delta\phi^a$ is arbitrary in the interior of $M$, we must have
 \begin{equation}
     E_a[\phi_c]=0
 \end{equation}
 which is just the \textit{equation of motion}.
 To make the spatial boundary contribution, a sufficient condition is that\sidenote{Notice that: \begin{itemize}
-    \item This has not been proved to be a necessary condition yet, but the authors of \cite{Harlow:2019yfa} believe it is.
-    \item The relation still holds off shell. We can view this as a requirement on the theory, which means that we will only consider theories that satisfies \cref{spatial_boundary_requirement} here and theories that do not satisfy \cref{spatial_boundary_requirement} is not well-defined.
-\end{itemize}}
+        \item This has not been proved to be a necessary condition yet, but the authors of \cite{Harlow:2019yfa} believe it is.
+        \item The relation still holds off shell. We can view this as a requirement on the theory, which means that we will only consider theories that satisfies \cref{spatial_boundary_requirement} here and theories that do not satisfy \cref{spatial_boundary_requirement} is not well-defined.
+    \end{itemize}}
 \begin{equation}\label{spatial_boundary_requirement}
     \eval{\left(\Theta+\delta\ell\right)}_\Gamma=\dd{C}
 \end{equation}
@@ -112,15 +112,15 @@ Although we only defined $C$ on $\Gamma$, we can extend the definition of $C$ to
 
 
 
-The variation of a dynamical tensor field under the infinitesimal diffeomorphism generated by a vector field $\xi^\mu$ can be defined as 
+The variation of a dynamical tensor field under the infinitesimal diffeomorphism generated by a vector field $\xi^\mu$ can be defined as
 \begin{equation}
     \delta_{\xi}\phi\equiv\mathcal{L}_\xi \phi
-\end{equation} 
+\end{equation}
 We also define a vector field on the configuration space
 \begin{equation}
     X_\xi\equiv\int\dd[d]{x}\mathcal{L}_\xi \phi^a(x)\frac{\delta}{\delta \phi^a}
 \end{equation}
-and we have 
+and we have
 \begin{equation}
     \delta_\xi \phi^a(x)=\mathcal{L}_{X_\xi}\phi^a(x)=X_{\xi}\cdot\delta\phi^a(x)
 \end{equation}
@@ -130,7 +130,7 @@ and this variation formula can be generalized to any configuration-space tensor 
 \end{equation}
 
 \begin{definition}[Covariance]
-    A configuration-space tensor $\sigma$ which is also a spacetime tensor locally constructed out of the dynamical and background fields is \textit{covariant} under the infinitesimal diffeomorphism generated by a vector field $\xi^\mu$ if 
+    A configuration-space tensor $\sigma$ which is also a spacetime tensor locally constructed out of the dynamical and background fields is \textit{covariant} under the infinitesimal diffeomorphism generated by a vector field $\xi^\mu$ if
     \begin{equation}
         \delta_{\xi}\sigma=\mathcal{L}_\xi \sigma\label{eq:cov_def}
     \end{equation}
@@ -138,18 +138,18 @@ and this variation formula can be generalized to any configuration-space tensor 
 \end{definition}
 
 Covariance of $L$ under the diffeomorphisms generated by a vector field $\xi^\mu$ is not sufficient for those diffeomorphisms to be symmetries.
-For a continuous transformation of dynamical fields to be a symmetry, this transformation 
+For a continuous transformation of dynamical fields to be a symmetry, this transformation
 \begin{itemize}
-    \item must respect the boundary conditions 
+    \item must respect the boundary conditions
     \item must preserve the action up to possible boundary terms at $\Sigma_\pm$.
 \end{itemize}
-The variation of the action \cref{eq:action} by a infinitesimal diffeomorphism under which $L$ is covariant is 
+The variation of the action \cref{eq:action} by a infinitesimal diffeomorphism under which $L$ is covariant is
 \begin{equation}
     \begin{split}
         \delta_\xi S&=\int_M \delta_\xi L+\int_{\partial M}\delta_\xi \ell\\
-                    &=\int_M \mathcal{L}_\xi L+\int_{\partial M}\delta_\xi \ell\\
-                    &=\int_M \left(\xi\cdot\dd{L}+\dd(\xi\cdot L)\right)+\int_{\partial M}\delta_\xi \ell\\
-                    &=\int_{\partial M}\left(\xi\cdot L+\delta_{\xi}\ell\right)
+        &=\int_M \mathcal{L}_\xi L+\int_{\partial M}\delta_\xi \ell\\
+        &=\int_M \left(\xi\cdot\dd{L}+\dd(\xi\cdot L)\right)+\int_{\partial M}\delta_\xi \ell\\
+        &=\int_{\partial M}\left(\xi\cdot L+\delta_{\xi}\ell\right)
     \end{split}
 \end{equation}
 where we have used \cref{eq:cov_def} and the fact $\dd{L}=0$ because it is a top form in spacetime.
@@ -161,7 +161,7 @@ where we have used \cref{eq:cov_def} and the fact $\dd{L}=0$ because it is a top
 
 \subsection{Diffeomorphism charges}
 
-It will be useful to introduce the Noether current
+It will be useful to introduce the Noether current\cite{Iyer:1994ys}
 \begin{definition}[Noether current]
     The Noether current is defined as
     \begin{equation}
@@ -170,6 +170,43 @@ It will be useful to introduce the Noether current
     and $J_\xi$ is a $(d-1,0)$-form.
 \end{definition}
 
+\begin{claim}
+    If $L$ is covariant under $\xi$ then $J_{\xi}$ is closed as a spacetime form, which means $\dd{J_\xi}=0$.
+\end{claim}
+\begin{proof}
+    \begin{equation}
+        \begin{split}
+            \dd{J_\xi}=\dd{X_\xi\cdot\Theta}-\dd{\xi\cdot L}
+        \end{split}
+    \end{equation}
+\end{proof}
+
+
+\begin{claim}
+    $-X_\xi\cdot\tilde{\Omega}$ is exact with respect to $\delta$, which means
+    \begin{equation}
+        -X_\xi\cdot\tilde{\Omega}=\delta H_{\xi}
+    \end{equation}
+    where $H_{\xi}$ is some function on $\tilde{\mathcal{P}}$.
+\end{claim}
+\begin{proof}
+    \begin{equation}
+        -X_\xi\cdot\tilde{\Omega}=
+    \end{equation}
+    We can see that
+    \begin{equation}
+        -X_\xi\cdot\tilde{\Omega}=\delta H_\xi
+    \end{equation}
+    where
+    \begin{equation}
+        H_\xi\equiv\int_{\Sigma}J_{\xi}+\int_{\partial\Sigma}(\xi\cdot\ell-X_\xi\cdot C)+\text{const.}
+    \end{equation}
+
+\end{proof}
+
+\begin{claim}
+    $H_\xi$ is independent of the choice of Cauchy slice $\Sigma$.
+\end{claim}
 
 \section{Examples}
 \begin{example}[Partical mechanics]
