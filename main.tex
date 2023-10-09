@@ -76,9 +76,6 @@ The usual Hamiltonian mechanics can be restored if we take
 \end{equation}
 
 \section{Construction of Covariant Phase Space}
-\begin{definition}[Pre-phase space]
-    \textit{Pre-phase space} $\tilde{\mathcal{P}}$ is defined to be the set of solutions of the equations of motion\mn{Boundary conditions are satisfied.}.
-\end{definition}
 \begin{definition}[Phase space]
     The \textit{phase space} $\mathcal{P}$ is defined as 
     \begin{equation}
@@ -121,6 +118,34 @@ To make the spatial boundary contribution, a sufficient condition is that\sideno
 \end{equation}
 where $C$ is a local $(d-2)$-form on $\Gamma$ which is locally constructed from terms involving dynamical/background fields.
 Although we only defined $C$ on $\Gamma$, we can extend the definition of $C$ to $\Sigma_{\pm}$ in arbitrary way since we will find only values on $\partial\Gamma$ (or $\partial\Sigma_{\pm}$) matter.
+Using \cref{spatial_boundary_requirement}, now we have 
+\begin{equation}\label{delta_S_1}
+    \begin{split}
+        \delta S&=\int_M E_a\delta\phi^a+\int_{\Gamma}\left(\delta\ell+\Theta\right)+\int_{\Sigma_+-\Sigma_-}\left(\delta\ell+\Theta\right)\\
+                &=\int_M E_a\delta\phi^a+\int_{\partial\Gamma}C+\int_{\Sigma_+-\Sigma_-}\left(\delta\ell+\Theta\right)\\
+                &=\int_M E_a\delta\phi^a+\int_{\Sigma_+-\Sigma_-}\left(\delta\ell+\Theta-\dd{C}\right)
+    \end{split}
+\end{equation}
+where we have used $\int_{\Sigma_+ -\Sigma_-}\dd{C}=-\int_\Gamma \dd{C}=-\int_{\partial\Gamma}C$. \sidenote{Notice that $\int_{\Sigma_+ -\Sigma_- +\Gamma}\dd{C}=0$ since $\partial M=\Sigma_+ -\Sigma_- +\Gamma$ and $\partial(\Sigma_+ -\Sigma_- +\Gamma)=\partial{\partial M}=\emptyset$.}
+When EOM is satisfied ($E_a=0$), we can see \cref{delta_S_1} is in the form of \cref{var_S_2} with $\Psi=\Theta+\delta\ell-\dd{C}$.
+
+\begin{definition}[Pre-phase space]
+    \textit{Pre-phase space} $\tilde{\mathcal{P}}$ is defined to be the elements in $\mathcal{C}$ which obey the equations of motion.
+\end{definition}
+Obviously, $\tilde{\mathcal{P}}$ is a subset of $\mathcal{C}$. 
+
+\begin{intu}
+    Instead of viewing the quantities like $\delta\phi^a(x)$ as an infinitesimal variation, we now think of them as differential forms on $\mathcal{C}$.
+    To be more specific, $\delta$ now denotes the exterior derivative on $\mathcal{C}$.
+    Similarly, $\fdv{\phi^a(x)}$ is a vector on $\mathcal{C}$.
+    The action of $\delta\phi^a(x)$ on a vector is defined by $\delta\phi^a(x)\left(\fdv{\phi^b(x')}\right)\equiv\delta_{ab}\delta(x-x')$.
+\end{intu}
+We can show that
+\begin{equation}
+    \delta\phi^a(x)\left(\int\dd[d]{x'}f^b(\phi,x')\fdv{\phi^b(x')}\right)=f^a(\phi,x)
+\end{equation}
+which means that if we want to convert $\delta\phi^a(x)$ from a one-form back to a variation, we just act it on a vector whose components are the desired variation.
+
 \begin{definition}[Pre-symplectic current]
     The pre-symplectic current $\omega$ is defined as the pullback of $\delta\Psi$ to $\tilde{\mathcal{P}}$
     \begin{equation}
