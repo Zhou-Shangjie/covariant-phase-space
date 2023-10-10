@@ -77,7 +77,7 @@ The usual Hamiltonian mechanics can be restored if we take
 
 \section{Construction of Covariant Phase Space}
 \begin{definition}[Phase space]
-    The \textit{phase space} $\mathcal{P}$ is defined as 
+    The \textit{phase space} $\mathcal{P}$ is defined as
     \begin{equation}
         \mathcal{P}\equiv\tilde{\mathcal{P}}/\tilde{G}.
     \end{equation}
@@ -118,25 +118,28 @@ To make the spatial boundary contribution, a sufficient condition is that\sideno
 \end{equation}
 where $C$ is a local $(d-2)$-form on $\Gamma$ which is locally constructed from terms involving dynamical/background fields.
 Although we only defined $C$ on $\Gamma$, we can extend the definition of $C$ to $\Sigma_{\pm}$ in arbitrary way since we will find only values on $\partial\Gamma$ (or $\partial\Sigma_{\pm}$) matter.
-Using \cref{spatial_boundary_requirement}, now we have 
+Using \cref{spatial_boundary_requirement}, now we have
 \begin{equation}\label{delta_S_1}
     \begin{split}
         \delta S&=\int_M E_a\delta\phi^a+\int_{\Gamma}\left(\delta\ell+\Theta\right)+\int_{\Sigma_+-\Sigma_-}\left(\delta\ell+\Theta\right)\\
-                &=\int_M E_a\delta\phi^a+\int_{\partial\Gamma}C+\int_{\Sigma_+-\Sigma_-}\left(\delta\ell+\Theta\right)\\
-                &=\int_M E_a\delta\phi^a+\int_{\Sigma_+-\Sigma_-}\left(\delta\ell+\Theta-\dd{C}\right)
+        &=\int_M E_a\delta\phi^a+\int_{\partial\Gamma}C+\int_{\Sigma_+-\Sigma_-}\left(\delta\ell+\Theta\right)\\
+        &=\int_M E_a\delta\phi^a+\int_{\Sigma_+-\Sigma_-}\left(\delta\ell+\Theta-\dd{C}\right)
     \end{split}
 \end{equation}
 where we have used $\int_{\Sigma_+ -\Sigma_-}\dd{C}=-\int_\Gamma \dd{C}=-\int_{\partial\Gamma}C$. \sidenote{Notice that $\int_{\Sigma_+ -\Sigma_- +\Gamma}\dd{C}=0$ since $\partial M=\Sigma_+ -\Sigma_- +\Gamma$ and $\partial(\Sigma_+ -\Sigma_- +\Gamma)=\partial{\partial M}=\emptyset$.}
-When EOM is satisfied ($E_a=0$), we can see \cref{delta_S_1} is in the form of \cref{var_S_2} with $\Psi=\Theta+\delta\ell-\dd{C}$.
+When EOM is satisfied ($E_a=0$), we can see \cref{delta_S_1} is in the form of \cref{var_S_2} with
+\begin{equation}
+    \Psi=\Theta+\delta\ell-\dd{C}.
+\end{equation}
 
 \begin{definition}[Pre-phase space]
     \textit{Pre-phase space} $\tilde{\mathcal{P}}$ is defined to be the elements in $\mathcal{C}$ which obey the equations of motion.
 \end{definition}
-Obviously, $\tilde{\mathcal{P}}$ is a subset of $\mathcal{C}$. 
+Obviously, $\tilde{\mathcal{P}}$ is a subset of $\mathcal{C}$.
 
 \begin{intu}
     Instead of viewing the quantities like $\delta\phi^a(x)$ as an infinitesimal variation, we now think of them as differential forms on $\mathcal{C}$.
-    To be more specific, $\delta$ now denotes the exterior derivative on $\mathcal{C}$.
+    To be more specific, $\delta$ now denotes the exterior derivative on $\mathcal{C}$.\mn{We also have $\delta^2=0$.}
     Similarly, $\fdv{\phi^a(x)}$ is a vector on $\mathcal{C}$.
     The action of $\delta\phi^a(x)$ on a vector is defined by $\delta\phi^a(x)\left(\fdv{\phi^b(x')}\right)\equiv\delta_{ab}\delta(x-x')$.
 \end{intu}
@@ -145,21 +148,77 @@ We can show that
     \delta\phi^a(x)\left(\int\dd[d]{x'}f^b(\phi,x')\fdv{\phi^b(x')}\right)=f^a(\phi,x)
 \end{equation}
 which means that if we want to convert $\delta\phi^a(x)$ from a one-form back to a variation, we just act it on a vector whose components are the desired variation.
+Now we see that a differential form can have tensor rank on both spacetime $M$ and configuration space $\mathcal{C}$, for example $\delta L$ is an $n$-form on $M$ and a $1$-form on $\mathcal{C}$.
+We list some tensor ranks on some differential forms in \cref{tab:rank}.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}ccc@{}}
+        \toprule
+                 & Spacetime $M$ & Configuration Space $\mathcal{C}$ \\ \midrule
+        $L$      & $n$           & $0$                               \\
+        $\ell$   & $n-1$         & $0$                               \\
+        $E_a$   & $n$         & $0$                               \\
+        $\Theta$ & $n-1$         & $1$                               \\
+        $C$      & $n-2$         & $1$                               \\ \bottomrule
+    \end{tabular}
+    \caption{Tensor ranks of some differential forms on $M$ and $\mathcal{C}$.}
+    \label{tab:rank}
+\end{table}
+\begin{remark}
+    The mathematics here are rather incomplete. 
+    See detailed discussions in \cite{Crnkovic:1986ex,compere2019advanced}.
+    We will use the convention that the two exterior derivative operators $\mathrm{d}$ on spacetime $M$ and $\delta$ on configuration space commute\mn{The convention in \cite{compere2019advanced} is opposite.}.
+\end{remark}
+
 
 \begin{definition}[Pre-symplectic current]
-    The pre-symplectic current $\omega$ is defined as the pullback of $\delta\Psi$ to $\tilde{\mathcal{P}}$
+    The pre-symplectic current $\omega$ is defined as the pullback\mn{We denote the pullback of a tensor $\sigma$ to $\tilde{\mathcal{P}}$ by $\eval{\sigma}_{\tilde{\mathcal{P}}}$.} of $\delta\Psi$ to $\tilde{\mathcal{P}}$
     \begin{equation}
-        \Omega\equiv\eval{\delta\Psi}_{\tilde{\mathcal{P}}}
+        \omega\equiv\eval{\delta\Psi}_{\tilde{\mathcal{P}}}=\eval{\delta(\Theta+\delta\ell-\dd{C})}_{\tilde{\mathcal{P}}}=\eval{\delta(\Theta-\dd{C})}_{\tilde{\mathcal{P}}}.
     \end{equation}
 \end{definition}
+\begin{claim}
+    The pre-symplectic current $\omega$ is closed on $\tilde{\mathcal{P}}$.
+\end{claim}
+\begin{proof}
+
+\end{proof}
+\begin{claim}
+    The pre-symplectic current $\omega$ vanishes on $\Gamma$.
+\end{claim}
+\begin{proof}
+    Since of $\Gamma$ we have $\eval{\Theta+\delta\ell}_\Gamma=\dd{C}$ (which is the \cref{spatial_boundary_requirement}), it is obvious that
+    \begin{equation}
+        \eval{\omega}_\Gamma=\eval{\delta(\Theta+\delta\ell-\dd{C})}_{\tilde{\mathcal{P}},\Gamma}=0
+    \end{equation}
+\end{proof}
+\begin{claim}
+    The pre-symplectic current $\omega$ is closed as a $(d-1)$-form on $M$.
+\end{claim}
+\begin{proof}
+    \begin{equation}
+        \begin{split}
+            \dd{\omega}&=\eval{\dd{\delta(\Theta-\dd{C})}}_{\tilde{\mathcal{P}}}\\
+                       &=\eval{\delta\dd{\Theta}}_{\tilde{\mathcal{P}}}\\
+                       &=\eval{\delta(\delta L-E_a\delta\phi^a)}_{\tilde{\mathcal{P}}}\\
+                       &=\eval{-\delta( E_a\delta\phi^a)}_{\tilde{\mathcal{P}}}\\
+                       &=\eval{-\delta E_a\wedge\delta\phi^a}_{\tilde{\mathcal{P}}}\\
+                       &=-\eval{\delta E_a}_{\tilde{\mathcal{P}}}\wedge\eval{\delta\phi^a}_{\tilde{\mathcal{P}}}=0
+        \end{split}
+    \end{equation}
+    where we used the fact that pullback and exterior derivative/wedge product commute and $E_a=0$ on $\tilde{\mathcal{P}}$, and also $\delta$ and $\mathrm{d}$ commute.
+\end{proof}
 
 \begin{definition}[Pre-symplectic form]
-    The pre-symplectic form is defined as 
+    The pre-symplectic form is defined as
     \begin{equation}
         \tilde{\Omega}\equiv\int_\Sigma \omega
     \end{equation}
     where $\Sigma$ is any Cauchy slice of $M$.
 \end{definition}
+\begin{claim}
+    The pre-symplectic form $\tilde{\Omega}$ is independent of the choice of Cauchy slice $\Sigma$.
+\end{claim}
 
 \subsection{Definition of Covariance}
 The variation of a dynamical tensor field under the infinitesimal diffeomorphism generated by a vector field $\xi^\mu$ can be defined as
