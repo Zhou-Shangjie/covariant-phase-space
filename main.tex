@@ -33,6 +33,14 @@
 \section*{Introduction}
 This note follows \cite{Harlow:2019yfa}
 
+We have
+\begin{equation}\label{eq:stokes}
+    \int_M\dd{\omega}=\int_{\partial M}\omega
+\end{equation}
+and Cartan's magic formula:
+\begin{equation}\label{eq:cartan}
+    \mathcal{L}_X \omega=X\cdot\dd{\omega}+\dd{(X\cdot\omega)}
+\end{equation}
 \section{Hamiltonian Formalism}
 The Hamilton equations are
 \begin{subequations}
@@ -82,12 +90,7 @@ The standard Hamiltonian formalism has the following disadvantanges in some spec
     \item The proof of relativistic invariance of physical results is complicated.
     \item In curved spacetime, the sepration of space and time is often the origin of the messy details in general covariant theory.
 \end{itemize}
-\begin{definition}[Phase space]
-    The \textit{phase space} $\mathcal{P}$ is defined as
-    \begin{equation}
-        \mathcal{P}\equiv\tilde{\mathcal{P}}/\tilde{G}.
-    \end{equation}
-\end{definition}
+
 \subsection{Setup}
 We consider the following action
 \begin{equation}
@@ -139,9 +142,9 @@ When EOM is satisfied ($E_a=0$), we can see \cref{delta_S_1} is in the form of \
 \end{equation}
 
 \begin{definition}[Pre-phase space]
-    \textit{Pre-phase space} $\tilde{\mathcal{P}}$ is defined to be the elements in $\mathcal{C}$ which obey the equations of motion.
+    \textit{Pre-phase space} $\widetilde{\mathcal{P}}$ is defined to be the elements in $\mathcal{C}$ which obey the equations of motion.
 \end{definition}
-Obviously, $\tilde{\mathcal{P}}$ is a subset of $\mathcal{C}$.
+Obviously, $\widetilde{\mathcal{P}}$ is a subset of $\mathcal{C}$.
 
 \begin{intu}
     Instead of viewing the quantities like $\delta\phi^a(x)$ as an infinitesimal variation, we now think of them as differential forms on $\mathcal{C}$.
@@ -177,18 +180,18 @@ We list some tensor ranks on some differential forms in \cref{tab:rank}.
 \end{remark}
 
 
-\begin{definition}[Pre-symplectic current]
-    The pre-symplectic current $\omega$ is defined as the pullback\mn{We denote the pullback of a tensor $\sigma$ to $\tilde{\mathcal{P}}$ by $\eval{\sigma}_{\tilde{\mathcal{P}}}$.} of $\delta\Psi$ to $\tilde{\mathcal{P}}$
+\begin{definition}[Pre-symplectic current]\label{def:Pre-symplectic-current}
+    The pre-symplectic current $\omega$ is defined as the pullback\mn{We denote the pullback of a tensor $\sigma$ to $\widetilde{\mathcal{P}}$ by $\eval{\sigma}_{\widetilde{\mathcal{P}}}$.} of $\delta\Psi$ to $\widetilde{\mathcal{P}}$
     \begin{equation}
-        \omega\equiv\eval{\delta\Psi}_{\tilde{\mathcal{P}}}=\eval{\delta(\Theta+\delta\ell-\dd{C})}_{\tilde{\mathcal{P}}}=\eval{\delta(\Theta-\dd{C})}_{\tilde{\mathcal{P}}}.\label{eq:def_sym_curr}
+        \omega\equiv\eval{\delta\Psi}_{\widetilde{\mathcal{P}}}=\eval{\delta(\Theta+\delta\ell-\dd{C})}_{\widetilde{\mathcal{P}}}=\eval{\delta(\Theta-\dd{C})}_{\widetilde{\mathcal{P}}}.\label{eq:def_sym_curr}
     \end{equation}
 \end{definition}
 \begin{claim}
-    The pre-symplectic current $\omega$ is closed on $\tilde{\mathcal{P}}$.
+    The pre-symplectic current $\omega$ is closed on $\widetilde{\mathcal{P}}$.
 \end{claim}
 \begin{proof}
 \begin{equation}
-    \delta\omega=\delta\left(\eval{\delta\Psi}_{\tilde{\mathcal{P}}}\right)=\eval{\delta^2\Psi}_{\tilde{\mathcal{P}}}=0
+    \delta\omega=\delta\left(\eval{\delta\Psi}_{\widetilde{\mathcal{P}}}\right)=\eval{\delta^2\Psi}_{\widetilde{\mathcal{P}}}=0
 \end{equation}
 where we used the fact that pullback and exterior derivative commute and $\delta^2=0$.
 \end{proof}
@@ -198,7 +201,7 @@ where we used the fact that pullback and exterior derivative commute and $\delta
 \begin{proof}
     Since on $\Gamma$ we have $\eval{\Theta+\delta\ell}_\Gamma=\dd{C}$ (which is the \cref{spatial_boundary_requirement}), it is obvious that
     \begin{equation}
-        \eval{\omega}_\Gamma=\eval{\delta(\Theta+\delta\ell-\dd{C})}_{\tilde{\mathcal{P}},\Gamma}=0
+        \eval{\omega}_\Gamma=\eval{\delta(\Theta+\delta\ell-\dd{C})}_{\widetilde{\mathcal{P}},\Gamma}=0
     \end{equation}
 \end{proof}
 \begin{claim}
@@ -207,32 +210,45 @@ where we used the fact that pullback and exterior derivative commute and $\delta
 \begin{proof}
     \begin{equation}
         \begin{split}
-            \dd{\omega}&=\eval{\dd{\delta(\Theta-\dd{C})}}_{\tilde{\mathcal{P}}}\\
-                       &=\eval{\delta\dd{\Theta}}_{\tilde{\mathcal{P}}}\\
-                       &=\eval{\delta(\delta L-E_a\delta\phi^a)}_{\tilde{\mathcal{P}}}\\
-                       &=\eval{-\delta( E_a\delta\phi^a)}_{\tilde{\mathcal{P}}}\\
-                       &=\eval{-\delta E_a\wedge\delta\phi^a}_{\tilde{\mathcal{P}}}\\
-                       &=-\eval{\delta E_a}_{\tilde{\mathcal{P}}}\wedge\eval{\delta\phi^a}_{\tilde{\mathcal{P}}}=0
+            \dd{\omega}&=\eval{\dd{\delta(\Theta-\dd{C})}}_{\widetilde{\mathcal{P}}}\\
+                       &=\eval{\delta\dd{\Theta}}_{\widetilde{\mathcal{P}}}\\
+                       &=\eval{\delta(\delta L-E_a\delta\phi^a)}_{\widetilde{\mathcal{P}}}\\
+                       &=\eval{-\delta( E_a\delta\phi^a)}_{\widetilde{\mathcal{P}}}\\
+                       &=\eval{-\delta E_a\wedge\delta\phi^a}_{\widetilde{\mathcal{P}}}\\
+                       &=-\eval{\delta E_a}_{\widetilde{\mathcal{P}}}\wedge\eval{\delta\phi^a}_{\widetilde{\mathcal{P}}}=0
         \end{split}
     \end{equation}
-    where we used the fact that pullback and exterior derivative/wedge product commute and $E_a=0$ on $\tilde{\mathcal{P}}$, and also $\delta$ and $\mathrm{d}$ commute.
+    where we used the fact that pullback and exterior derivative/wedge product commute and $E_a=0$ on $\widetilde{\mathcal{P}}$, and also $\delta$ and $\mathrm{d}$ commute.
 \end{proof}
 
-\begin{definition}[Pre-symplectic form]
+\begin{definition}[Pre-symplectic form]\label{def:Pre-symplectic-form}
     The pre-symplectic form is defined as
     \begin{equation}
-        \tilde{\Omega}\equiv\int_\Sigma \omega\label{eq:def_pre_form}
+        \widetilde{\Omega}\equiv\int_\Sigma \omega\label{eq:def_pre_form}
     \end{equation}
     where $\Sigma$ is any Cauchy slice of $M$.
 \end{definition}
 \begin{claim}
-    The pre-symplectic form $\tilde{\Omega}$ is independent of the choice of Cauchy slice $\Sigma$.
+    The pre-symplectic form $\widetilde{\Omega}$ is independent of the choice of Cauchy slice $\Sigma$.
 \end{claim}
 We can rewrite \cref{eq:def_pre_form} using \cref{eq:def_sym_curr} as 
 \begin{equation}
-    \tilde{\Omega}\equiv\int_\Sigma \omega=\int_\Sigma \eval{\delta(\Theta-\dd{C})}_{\tilde{\mathcal{P}}}=\eval{\delta\left(\int_\Sigma\Theta-\int_\Sigma\dd{C}\right)}_{\tilde{\mathcal{P}}}=\eval{\delta\left(\int_\Sigma\Theta-\int_{\partial\Sigma}C\right)}_{\tilde{\mathcal{P}}}
+    \widetilde{\Omega}\equiv\int_\Sigma \omega=\int_\Sigma \eval{\delta(\Theta-\dd{C})}_{\widetilde{\mathcal{P}}}=\eval{\delta\left(\int_\Sigma\Theta-\int_\Sigma\dd{C}\right)}_{\widetilde{\mathcal{P}}}=\eval{\delta\left(\int_\Sigma\Theta-\int_{\partial\Sigma}C\right)}_{\widetilde{\mathcal{P}}}
 \end{equation}
 from which we can see that the contribution of $C$ is indeed only from $\partial\Sigma$.
+
+\begin{claim}
+    If $\widetilde{X}$ and $\widetilde{Y}$ are vector fields on $\widetilde{\mathcal{P}}$ which satisfy $X\cdot\widetilde{\Omega}=0$ and $Y\cdot\widetilde{\Omega}=0$, then their commutator also satisfies $\comm{\widetilde{X}}{\widetilde{Y}}\cdot\widetilde{\Omega}=0$.
+\end{claim}
+\begin{proof}
+    We have $\comm{\widetilde{X}}{\widetilde{Y}}=\mathcal{L}_{\widetilde{X}}\widetilde{Y}$ (see, for example, \cite{Wald:1984rg})
+\end{proof}
+\begin{definition}[Phase space]
+    The \textit{phase space} $\mathcal{P}$ is defined as
+    \begin{equation}
+        \mathcal{P}\equiv\widetilde{\mathcal{P}}/\widetilde{G}.
+    \end{equation}
+\end{definition}
 
 \subsection{Definition of Covariance}
 The variation of a dynamical tensor field under the infinitesimal diffeomorphism generated by a vector field $\xi^\mu$ can be defined as\sidenote{The variation of $\phi(x)$ generated by $\xi^\mu$ is $\delta_{\xi,t}= t\mathcal{L}_\xi \phi$ (to $\order{t}$) when the affine parameter $t$ satisfies $t\xi^\mu\ll 1$. Here we choose $\xi$ to be infinitesimal, so we can define $\delta_\xi\phi$ by setting $t=1$.}
@@ -281,11 +297,19 @@ The variation of the action \cref{eq:action} by a infinitesimal diffeomorphism u
         &=\int_{\partial M}\left(\xi\cdot L+\delta_{\xi}\ell\right)
     \end{split}
 \end{equation}
-where we have used \cref{eq:cov_def} and the fact $\dd{L}=0$ because it is a top form in spacetime.
-
+where we have used \cref{eq:cov_def} and the fact $\dd{L}=0$ because it is a full rank form in spacetime $M$.
+In \cite{Harlow:2019yfa}, the following requirements are imposed:
+\begin{itemize}
+    \item The normal component of $\xi^\mu$ vanishes at $\Gamma$.
+    \item $\ell$ is covariant with respect to $\xi^\mu$ on $\Gamma$.
+    \item $C$ is covariant with respect to $\xi^\mu$ on $\Gamma$.
+\end{itemize}
+The first one ensures that $\xi$ preserves $\Gamma$ and $\int_{\partial M}\xi\cdot L=0$ since the pullback of $\xi\cdot L$ induced from $\partial M\to M$ vanishes\sidenote{The action of the pullback $\varphi^\ast L$ induced from $\varphi:\partial M\to M$ is to restrict the definition of $L$ to the tangent space $T_p M$ where $p\in\partial M$. Since $L$ is an $m$-form and $\xi\in T_p M$ and $\dim T_p M=m-1$, we have $\varphi^\ast(\xi\cdot L)=0$, which means $\int_{\partial M}\xi\cdot L=0$.}. 
+The second one gives us $\eval{\delta_\xi\ell}_{\Gamma}=\eval{\mathcal{L}_\xi\ell}_{\Gamma}=\eval{\dd{(\xi\cdot\ell)}}_{\Gamma}$, which will give an allowed contribution on $\partial\Gamma=\Sigma_\pm$ after integration.
 \begin{remark}
     The covariance of $\ell$ under diffeomorphisms $\xi$ can impose even more restrictions on both $\ell$ and $\xi$.
     See \cite{Harlow:2019yfa} for detailed discussions.
+    In this note, all this requirements are satisfied.
 \end{remark}
 
 \subsection{Diffeomorphism charges}
@@ -296,7 +320,7 @@ It will be useful to introduce the Noether current\cite{Iyer:1994ys}
     \begin{equation}
         J_\xi\equiv X_\xi\cdot\Theta-\xi\cdot L
     \end{equation}
-    and $J_\xi$ is a $(d-1,0)$-form.
+    and $J_\xi$ is a $(d-1)$-form on $M$ and a scalar function\mn{$J_\xi$ is defined on $\widetilde{\mathcal{P}}$.} on $\widetilde{\mathcal{P}}$.
 \end{definition}
 
 \begin{claim}
@@ -306,29 +330,55 @@ It will be useful to introduce the Noether current\cite{Iyer:1994ys}
     \begin{equation}
         \begin{split}
             \dd{J_\xi}&=\dd{(X_\xi\cdot\Theta)}-\dd{(\xi\cdot L)}\\
-                      &=X_\xi\cdot\dd{\Theta}-\mathcal{L}_\xi L
+                      &=X_\xi\cdot\dd{\Theta}-\mathcal{L}_\xi L\\
+                      &=X_{\xi}\cdot\left(\delta L-E_a\delta\phi^a\right)-\mathcal{L}_\xi L\\
+                      &=\delta_\xi L-\mathcal{L}_\xi L-E_a\mathcal{L}_\xi \phi^a\\
+                      &=0
         \end{split}
     \end{equation}
-    We have $\dd{(X_\xi\cdot\Theta)}=X_\xi\cdot\dd{\Theta}$ because $X_\xi$ is a vector on phase space and $\mathrm{d}$ is a exterior derivative on spacetime $M$.
+    where we used $\delta_\xi=\delta_\xi L$ and $E_a=0$ on $\widetilde{\mathcal{P}}$ and we have $\dd{(X_\xi\cdot\Theta)}=X_\xi\cdot\dd{\Theta}$ because $X_\xi$ is a vector on phase space and $\mathrm{d}$ is a exterior derivative on spacetime $M$.
 \end{proof}
 
 
 \begin{claim}
-    $-X_\xi\cdot\tilde{\Omega}$ is exact with respect to $\delta$, which means
+    $-X_\xi\cdot\widetilde{\Omega}$ is exact with respect to $\delta$, which means
     \begin{equation}
-        -X_\xi\cdot\tilde{\Omega}=\delta H_{\xi}
+        -X_\xi\cdot\widetilde{\Omega}=\delta H_{\xi}
     \end{equation}
-    where $H_{\xi}$ is some function on $\tilde{\mathcal{P}}$.
+    where $H_{\xi}$ is some function on $\widetilde{\mathcal{P}}$.
 \end{claim}
 \begin{proof}
+    We can do the following computation using \cref{def:Pre-symplectic-current} (pullback in the definition of $\omega$ is omitted here for the simplicity of notation, but it is still there.)
     \begin{equation}
         \begin{split}
-            -X_\xi\cdot\tilde{\Omega}=
+            -X_\xi\cdot\omega&=-X_\xi\cdot\delta(\Theta-\dd{C})\\
+                             &=\delta\left(X_{\xi}\cdot(\Theta-\dd{C})\right)-\mathcal{L}_{X_\xi}(\Theta-\dd{C})\\
+                             &=\delta \left(J_{\xi}+\xi\cdot L-X_\xi \cdot\dd{C}\right)-\mathcal{L}_{X_\xi}\Theta+\dd{(\mathcal{L}_{X_\xi} C)}\\
+                             &=\delta \left(J_{\xi}-X_\xi \cdot\dd{C}\right)+\xi\cdot\delta L-\mathcal{L}_{X_\xi}\Theta+\dd{(\delta_\xi C)}\\
+                             &=\delta J_\xi+\xi\cdot(\dd{\Theta}+E_a\delta\phi^a)-\mathcal{L}_{X_\xi}\Theta+\dd{(\delta_\xi C-\delta(X_\xi\cdot C))}\\
+                             &=\delta J_\xi+\xi\cdot\dd{\Theta}-\mathcal{L}_{X_\xi}\Theta+\dd{(\delta_\xi C-\delta(X_\xi\cdot C))}\\
+                             &=\delta J_\xi+\xi\cdot\dd{\Theta}-\mathcal{L}_{\xi}\Theta+\dd{(\delta_\xi C-\delta(X_\xi\cdot C))}\\
+                             &=\delta J_\xi+\dd{(\delta_\xi C-\delta(X_\xi\cdot C)-\xi\cdot\Theta)}
+        \end{split}\label{eq:xomega}
+    \end{equation}
+    where we have used Cartan's magic formula \cref{eq:cartan} (both on $M$ and $\widetilde{\mathcal{P}}$), $E_a=0$ on $\widetilde{\mathcal{P}}$ and the covariance of $\Theta$.
+    We did not use the covariance of $C$ here since we only assume that $C$ is covariant on $\Gamma$.
+    Then using the \cref{def:Pre-symplectic-form} we have 
+    \begin{equation}
+        \begin{split}
+            -X_\xi\cdot\widetilde{\Omega}&=-X_\xi\cdot\int_\Sigma \omega\\
+                                     &=\int_{\Sigma}\delta J_\xi+\int_{\partial\Sigma}(\delta_\xi C-\delta(X_\xi\cdot C)-\xi\cdot\Theta)\\
+                                     &=\int_{\Sigma}\delta J_\xi+\int_{\partial\Sigma}(\mathcal{L}_\xi C-\delta(X_\xi\cdot C)-\xi\cdot\Theta)\\
+                                     &=\int_{\Sigma}\delta J_\xi+\int_{\partial\Sigma}(\xi\cdot\dd{C}+\dd{(\xi\cdot C)}-\delta(X_\xi\cdot C)-\xi\cdot\Theta)\\
+                                     &=\int_{\Sigma}\delta J_\xi+\int_{\partial\Sigma}(\xi\cdot(\dd{C}-\Theta)-\delta(X_\xi\cdot C))+\int_{\partial\partial\Sigma}\xi\cdot C\\
+                                     &=\int_{\Sigma}\delta J_\xi+\int_{\partial\Sigma}(\xi\cdot\delta\ell-\delta(X_\xi\cdot C))\\
+                                     &=\delta\left(\int_\Sigma J_\xi+\int_{\partial\Sigma}(\xi\cdot\ell-X_\xi\cdot C)\right)
         \end{split}
     \end{equation}
+    where we have used \cref{eq:xomega,eq:cartan,eq:stokes,spatial_boundary_requirement} and $\partial\partial\Sigma=0$ and the covariance of $C$ on $\Gamma$ (since $\partial \Sigma\in\Gamma$). 
     We can see that
     \begin{equation}
-        -X_\xi\cdot\tilde{\Omega}=\delta H_\xi
+        -X_\xi\cdot\widetilde{\Omega}=\delta H_\xi
     \end{equation}
     where
     \begin{equation}
@@ -336,6 +386,13 @@ It will be useful to introduce the Noether current\cite{Iyer:1994ys}
     \end{equation}
 
 \end{proof}
+Therefore we can make the following definition
+\begin{definition}[Diffeomorphism charge]
+    The diffeomorphism charge $H_\xi$ corresponding to $\xi$ is defined as 
+    \begin{equation}
+        H_\xi\equiv\int_{\Sigma}J_{\xi}+\int_{\partial\Sigma}(\xi\cdot\ell-X_\xi\cdot C)+\text{const.}
+    \end{equation}
+\end{definition}
 
 \begin{claim}
     $H_\xi$ is independent of the choice of Cauchy slice $\Sigma$.
