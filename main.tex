@@ -421,7 +421,20 @@ Therefore we can make the following definition
     $H_\xi$ is independent of the choice of Cauchy slice $\Sigma$.
 \end{claim}
 \begin{proof}
-    1
+    Suppose $\Sigma$ and $\Sigma'$ are two different Cauchy slices and $\partial\Sigma'-\partial\Sigma=\partial\Xi$, where $\Xi\in\Gamma$.
+    The difference of $H_\xi$ evaluated on $\Sigma$ and $\Sigma'$ is 
+    \begin{equation}
+        \begin{split}
+            \int_{\Sigma'-\Sigma}J_{\xi}+\int_{\partial\Sigma'-\partial\Sigma}(\xi\cdot\ell-X_\xi\cdot C)&=-\int_{\Xi}J_\xi-\int_{\partial\Xi}(\xi\cdot\ell-X_\xi\cdot C)\\
+                                                                                                         &=-\left(\int_{\Xi}J_\xi+\int_{\Xi}\dd(\xi\cdot\ell-X_\xi\cdot C)\right)\\
+                                                                                                         &=-\int_{\Xi}\left(X_\xi\cdot\Theta-\xi\cdot L+\mathcal{L}_\xi \ell-\xi\cdot\dd{\ell}-X_\xi\cdot\dd{C}\right)\\
+                                                                                                         &=-\int_{\Xi}\left(X_\xi\cdot(\Theta-\dd{C})+\mathcal{L}_\xi \ell\right)\\
+                                                                                                         &=-\int_{\Xi}\left(-X_\xi\cdot\delta\ell+\mathcal{L}_\xi \ell\right)\\
+                                                                                                         &=\int_{\Xi}(\delta_\xi\ell-\mathcal{L}_\xi \ell)=0
+        \end{split}
+    \end{equation}
+    where we have used $\oint J_\xi=0$, $\xi\cdot L=\xi\cdot\dd{\ell}=0$ since $\xi$ is normal to $\Gamma$ and the covariance of $\ell$.
+    Therefore, $H_\xi$ is independent of the choice of $\Sigma$.
 \end{proof}
 
 \section{Examples}
