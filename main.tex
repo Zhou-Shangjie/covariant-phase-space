@@ -31,7 +31,7 @@
 \maketitle
 \phantomsection\addcontentsline{toc}{section}{\protect\numberline{}Introduction}
 \section*{Introduction}
-This note follows \cite{Harlow:2019yfa}
+This note follows \cite{Harlow:2019yfa}.
 
 We have
 \begin{equation}\label{eq:stokes}
@@ -49,8 +49,8 @@ The Hamilton equations are
         \dot{p}^a & =-\pdv{H}{q^a}
     \end{align}
 \end{subequations}
-The usual Hamiltonian equation splits time coordinate $t$ from other coordinates which make it hard to maintain covariance.
-
+where $q^a$ is the coordinate and $p^a$ is the corresponding canonical momentum.
+The phase space is defined to be the set of all possible values of $\{q^i,p^i\}$.
 We view the phase space as an manifold $\mathcal{P}$ equipped with an non-degenrate\sidenote{That $\Omega$ is degenrate means: there is a vector $X\in V(\mathcal{P})$ makes that $\forall Y\in V(\mathcal{P})$, $\Omega(X,Y)=0$.} two-form $\Omega:V(\mathcal{P})\times V(\mathcal{P})\to\mathbb{R}(\mathcal{P})$ called the \textit{symplectic form}.
 From $\Omega$, we can induce a map $\Omega_{\text{ind}}:V(\mathcal{P})\to V^\ast(\mathcal{P})$ and for $X,Y\in V(\mathcal{P})$ we define
 \begin{equation}
@@ -62,16 +62,16 @@ We can also define $\Omega^{-1}:V^\ast(\mathcal{P})\times V^\ast(\mathcal{P})\to
     \Omega^{-1}(\omega,\sigma)\equiv\omega(\Omega_{\text{ind}}^{-1}(\sigma))
 \end{equation}
 where $\omega,\sigma\in V^\ast(\mathcal{P})$.
-Given a function $H\in\mathcal{P}$, we can define $X_H\in V(\mathcal{P})$ as
+Given a function $H\in\mathcal{F}(\mathcal{P})$, we can define $X_H\in V(\mathcal{P})$ as
 \begin{equation}
-    X_H(f)\equiv\Omega^{-1}(\delta f,\delta H)
+    X_H(f)\equiv\Omega^{-1}(\dd{f},\dd{H})
 \end{equation}
-where $f\in\mathcal{F}(\mathcal{P})$.
+where $f\in\mathcal{F}(\mathcal{P})$ and the ``$\dd$'' here is a exterior derivative on phase space..
 
 \begin{definition}[Poisson bracket]
     On manifold $\mathcal{P}$, the \textit{Poisson bracket} of two functions  $f,g\in\mathcal{F}(\mathcal{P})$ is defined as
     \begin{equation}
-        \pb{f}{g}\equiv\Omega^{-1}(\delta f,\delta g)=\Omega(X_g,X_f).
+        \pb{f}{g}\equiv\Omega^{-1}(\dd{f},\dd{g})=\Omega(X_g,X_f).
     \end{equation}
 \end{definition}
 Now we require that in a dynamic system, the time evolution of a function $f\in\mathcal{F}(\mathcal{P})$ to satisfy
@@ -80,8 +80,11 @@ Now we require that in a dynamic system, the time evolution of a function $f\in\
 \end{equation}
 The usual Hamiltonian mechanics can be restored if we take
 \begin{equation}
-    \Omega=\sum_a \delta p^a\wedge \delta q^a
+    \Omega=\sum_a \dd{p}^a\wedge \dd{q}^a.
 \end{equation}
+\begin{remark}
+    We often require $\Omega$ to be closed because the Poisson bracket will not be preserved if $\Omega$ is not closed, which is not good during quantization.
+\end{remark}
 
 \section{Construction of Covariant Phase Space}
 The standard Hamiltonian formalism has the following disadvantanges in some specific cases involving covariance\cite{Gieres:2021ekc}:
@@ -104,7 +107,7 @@ If we decompose $\partial M=\Gamma\cup\Sigma_+\cup\sigma_-$, the variation of ac
     Configuration space $\mathcal{C}$ is defined to be the set of dynamical fields configurations on spacetime obeying boundary conditions at $\Gamma$.
 \end{definition}
 
-By integration by parts, any local Lagrangian can be written in the following form
+By integration by parts, variation of any local Lagrangian can be written in the following form
 \begin{equation}
     \delta L=E_a\delta \phi^a+\dd{\Theta}
 \end{equation}
