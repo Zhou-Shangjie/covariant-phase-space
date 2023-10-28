@@ -272,7 +272,7 @@ Now the submanifolds that foliate $\widetilde{\mathcal{P}}$ that we mentioned is
         \mathcal{P}\equiv\widetilde{\mathcal{P}}/\widetilde{G}.
     \end{equation}
 \end{definition}
-\begin{definition}[Symplectic form]
+\begin{definition}[Symplectic form]\label{def:sym_form}
     Let $\pi:\widetilde{\mathcal{P}}\to\mathcal{P}$ be the map that send each point in $\widetilde{\mathcal{P}}$ to its corresponding $\widetilde{G}$-orbit.
     For $p\in\mathcal{P}$, $X,Y\in T_p\mathcal{P}$, we can find $q\in\widetilde{P}$ and $\widetilde{X},\widetilde{Y}\in T_q$ such that $p=\pi(q)$, $X=\pi_\ast\widetilde{X}$ and $Y=\pi_\ast\widetilde{Y}$, the symplectic form $\Omega$ is defined as 
     \begin{equation}
@@ -352,12 +352,13 @@ The second one gives us $\eval{\delta_\xi\ell}_{\Gamma}=\eval{\mathcal{L}_\xi\el
     \begin{equation}
         \widetilde{X}\cdot\delta H_\xi=\widetilde{\Omega}\left(\widetilde{X},X_\xi\right)=0,
     \end{equation}
-    which implies $H_\xi$ is a constant on orbit of $\widetilde{G}$, so $H_\xi$ can induce a function $H_{\xi,\mathcal{P}}$ on $\mathcal{P}$ in a well-defined way and we can define $H_{\xi,\mathcal{P}}(p)=H_{\xi}(q)$ where $\pi(q)=p$.
+    which implies $H_\xi$ is a constant on orbit of $\widetilde{G}$, so $H_\xi$ can induce a function $H_{\xi,\mathcal{P}}$ on $\mathcal{P}$ in a well-defined way and we can choose $H_{\xi,\mathcal{P}}(p)\equiv H_{\xi}(q)$ where $\pi(q)=p$ ($q\in\widetilde{\mathcal{P}}$, $p\in\mathcal{P}$ and $\pi:\widetilde{\mathcal{P}}\to\mathcal{P}$ is mentioned in \cref{def:sym_form}).
     Since $\Omega$ is nondegenerate, we can define $\Omega^{-1}:V^\ast(\mathcal{P})\times V^\ast(\mathcal{P})\to \mathbb{R}$ as in \cref{eq:omega-1}.
+    Now we have a vector field $X_{\xi,\mathcal{P}}$ on $\mathcal{P}$ defined by
     \begin{equation}
-        X_{\xi,\mathcal{P}}(f)=\Omega^{-1}\left(\delta f,\delta H_{\xi,\mathcal{P}}\right)
+        X_{\xi,\mathcal{P}}(f)\equiv\Omega^{-1}\left(\delta f,\delta H_{\xi,\mathcal{P}}\right)
     \end{equation}
-    where $X_{\xi,\mathcal{P}}\equiv \pi_\ast X_{\xi}$
+    where $X_{\xi,\mathcal{P}}\equiv \pi_\ast X_{\xi}$ and therefore we again have the Hamilton's equation.
 \end{intu}
 
 It will be useful to introduce the Noether current\cite{Iyer:1994ys}
